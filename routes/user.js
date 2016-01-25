@@ -2,11 +2,11 @@ var express = require('express');
 var router = express.Router();
 
 /* GET users Location. */
-router.get('/', function(req, res, next) {
+router.post('/', function(req, res, next) {
 
-	var loc = req.query;
+	var loc = req.body;
 	console.log(loc);
-  res.send('respond with a resource');
+  	res.status(200).send(loc);
 });
 
 module.exports = router;
