@@ -6,6 +6,7 @@
 		var currPos = pos;
 		console.log(currPos);
 		var xhr = new XMLHttpRequest();
+		var html = document.querySelector('html');
 
 		xhr.onreadystatechange = function() {
 			console.log(xhr);
@@ -13,10 +14,11 @@
 				case 200:
 					console.log(xhr.status);
 					console.log(xhr.responseText);
+					html.innerHTML = xhr.responseText;
 					break;
 			}
 		};
-		xhr.open('POST', '/user', true);
+		xhr.open('POST', '/', true);
 		xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 		xhr.send("lat=" + encodeURIComponent(currPos.coords.latitude) + "&lon=" + encodeURIComponent(currPos.coords.longitude));
 	}
