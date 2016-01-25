@@ -7,7 +7,6 @@ module.exports = {
 		var loc = req.body;
 		var apiLocation = config.apiLocation;
 		if(loc.lat && loc.lon) {
-			console.log(loc.lat);
 			apiLocation = "?lat=" + loc.lat + "&lon=" + loc.lon;
 		}
 
@@ -26,10 +25,12 @@ module.exports = {
 			var weather;
 			if(err) {console.log(err); res.send(500, 'Server Error'); return;}
 			weather = results[0];
-			// console.log(weather);
-	  		res.render('index', weather);
+	  		res.send(weather);
 		}
 		);
+	},
+	loader: function(req, res) {
+		res.render('index');
 	}
 
 };

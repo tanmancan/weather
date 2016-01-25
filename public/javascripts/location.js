@@ -1,26 +1,21 @@
-(function(){
-	window.onload = function() {
-		var html = document.querySelector('html');
-		if(navigator.geolocation) {
-			console.log(html);
-			document.body.firstChild.innerHTML = "Loading your current location weather...";
-			navigator.geolocation.getCurrentPosition(sendUserLocation, locationErr);
-		}
-		function locationErr(err) {
-			html.innerHTML = "ERROR:" + err;
-		}
-		function sendUserLocation(pos) {
-			var currPos = pos;
-			console.log(currPos);
-			var xhr = new XMLHttpRequest();
+window.onload = function() {
+	var html = document.querySelector('html');
+	if(navigator.geolocation) {
+		navigator.geolocation.getCurrentPosition(sendUserLocation, locationErr);
+	}
+	function locationErr(err) {
+		html.innerHTML = "ERROR:" + err;
+	}
+	function sendUserLocation(pos) {
+		var currPos = pos;
+		var xhr = new XMLHttpRequest();
 
-			xhr.onreadystatechange = function() {
-				console.log(xhr);
+		xhr.onreadystatechange = function() {
+			if (xhr.readyState === XMLHttpRequest.DONE) {
 				switch (xhr.status) {
 					case 200:
-						console.log(xhr.status);
-						console.log(xhr.responseText);
-						html.innerHTML = xhr.responseText;
+						weatherData = xhr.responseText;
+						renderPage('weather', JSON.parse(weatherData));
 						break;
 					case 400:
 					case 403:
@@ -28,10 +23,10 @@
 						html.innerHTML = "Could not load weather info!";
 						break;
 				}
-			};
-			xhr.open('POST', '/', true);
-			xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-			xhr.send("lat=" + encodeURIComponent(currPos.coords.latitude) + "&lon=" + encodeURIComponent(currPos.coords.longitude));
-		}
+			}
+		};
+		xhr.open('POST', '/', true);
+		xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		xhr.send("lat=" + encodeURIComponent(currPos.coords.latitude) + "&lon=" + encodeURIComponent(currPos.coords.longitude));
 	}
-})();
+}

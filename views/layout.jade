@@ -3,6 +3,8 @@ html
   head
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
+    script(src='/javascripts/handlebars.js')
+    script(src='/javascripts/render.js')
     script(src='/javascripts/location.js')
-  body
+  body#page
     block content
