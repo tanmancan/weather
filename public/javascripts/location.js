@@ -16,6 +16,9 @@
 					console.log(xhr.responseText);
 					html.innerHTML = xhr.responseText;
 					break;
+				default
+					html.innerHTML = "Could not access user location!";
+					break;
 			}
 		};
 		xhr.open('POST', '/', true);
