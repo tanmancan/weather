@@ -1,12 +1,15 @@
 (function(){
+	var html = document.querySelector('html');
 	if(navigator.geolocation) {
-		navigator.geolocation.getCurrentPosition(sendUserLocation);
+		navigator.geolocation.getCurrentPosition(sendUserLocation, locationErr);
+	}
+	function locationErr(err) {
+		html.innerHTML = "Could not get user location!";
 	}
 	function sendUserLocation(pos) {
 		var currPos = pos;
 		console.log(currPos);
 		var xhr = new XMLHttpRequest();
-		var html = document.querySelector('html');
 
 		xhr.onreadystatechange = function() {
 			console.log(xhr);
@@ -17,7 +20,7 @@
 					html.innerHTML = xhr.responseText;
 					break;
 				default:
-					html.innerHTML = "Could not access user location!";
+					html.innerHTML = "Could not load weather info!";
 					break;
 			}
 		};
