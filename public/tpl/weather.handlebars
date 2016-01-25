@@ -1,4 +1,10 @@
 <h1>Current Weather {{name}}</h1>
 <hr>
-<p>Temperature is {{main.temp}} degrees</p>
+<p>Temperature is {{main.temp}} degrees F</p>
+{{#with weather.[0]}}
+<p>{{description}}</p>
+{{/with}}
 
+{{#with wind}}
+<p>Windspeed is {{speed}}mph</p>
+{{/with}}
