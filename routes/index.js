@@ -13,7 +13,6 @@ router.get('/', function(req, res, next) {
 				if(err) {console.log(err); callback(true); return;}
 				obj = JSON.parse(body);
 				callback(false, obj);
-				console.log(obj);
 			});
 		}
 	],
