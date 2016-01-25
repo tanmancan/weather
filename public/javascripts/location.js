@@ -16,7 +16,7 @@
 					console.log(xhr.responseText);
 					html.innerHTML = xhr.responseText;
 					break;
-				default
+				default:
 					html.innerHTML = "Could not access user location!";
 					break;
 			}
