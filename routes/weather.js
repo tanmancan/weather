@@ -29,8 +29,13 @@ module.exports = {
 		}
 		);
 	},
+	
 	loader: function(req, res) {
-		res.render('index');
+		res.render('loader');
+	},
+
+	dev: function(req, res) {
+		res.render('loader');
 	}
 
 };

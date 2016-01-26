@@ -31,3 +31,7 @@ npm-debug.log
 
 # Config file
 config.js
+
+# Sass
+*.css.map
+sass-cache
