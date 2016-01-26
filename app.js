@@ -7,7 +7,6 @@ var bodyParser = require('body-parser');
 
 var weather = require('./routes/weather')
 
-console.log(weather);
 var app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
