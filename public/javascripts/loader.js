@@ -29,12 +29,14 @@ window.onload = function() {
             	var steps = Math.round(timestamp);
 
 
-                if (steps <= 400000) {
+                if (steps <= 10000) {
                 	console.log(steps);
                 	console.log(counter);
+                	console.log(iconHolder.style.transform);
+
                 	if (steps >= counter) {
                 		console.log('red');
-                		iconHolder.style.transform = 'rotateY(180deg)';
+                		iconHolder.style.transform = (!iconHolder.style.transform || iconHolder.style.transform === 'rotateY(0deg)') ? 'rotateY(180deg)' : 'rotateY(0deg)';
                         iconHolder.style.background = "red";
                         iconFront.setAttribute('id', icons[iconCounter]);
                         iconBack.setAttribute('id', icons[iconCounter]);
@@ -47,7 +49,6 @@ window.onload = function() {
                     	counter += 2000;
 
                 	}else {
-                		iconHolder.style.transform = '';
                 	}
 
                     rafReq = reqAnimFrame(step);
