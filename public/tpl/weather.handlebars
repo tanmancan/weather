@@ -19,8 +19,18 @@
 		<!-- /.temperature -->
 	</div>
 	<!-- /.clearfix -->
-	
+	<hr>
 	{{#with wind}}
-	<p>Windspeed is {{speed}}mph</p>
+	<div class="flex-container">
+		<div class="flex-item">
+			<i class="icon-compass wind-direction" style="transform: rotateZ({{deg}}deg);"></i>
+		</div>
+		<!-- /.flex-item -->
+		<div class="flex-item">
+			<div class="wind-speed description">{{speed}} mph wind</div>
+		</div>
+		<!-- /.flex-item -->
+	</div>
+	<!-- /.flex-container -->
 	{{/with}}
 </div>

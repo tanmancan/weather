@@ -8,11 +8,11 @@
   .weather-report .icon {
     font-size: 4rem;
     line-height: 4rem; }
-  .weather-report .temperature .degrees {
+  .weather-report .degrees {
     font-size: 4rem;
     font-weight: 800;
     line-height: 4rem; }
-  .weather-report .temperature .label {
+  .weather-report .label {
     font-size: 1rem;
     font-weight: 600; }
   .weather-report .description {
@@ -20,6 +20,12 @@
     font-size: 1.2rem;
     font-weight: 600;
     line-height: 1.2rem; }
+  .weather-report .wind-direction {
+    font-size: 4rem;
+    line-height: 4rem;
+    display: inline-block; }
+    .weather-report .wind-direction:before {
+      transform: rotateZ(-45deg); }
 
 .loading-block {
   width: 100vw;
@@ -124,7 +130,8 @@ hr {
 .flex-container {
   display: flex;
   flex-direction: row;
-  align-content: stretch; }
+  align-content: stretch;
+  margin-bottom: 1.4rem; }
   .flex-container > div {
     flex: auto;
     position: relative; }

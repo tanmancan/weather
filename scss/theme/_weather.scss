@@ -14,21 +14,29 @@
 		line-height: 4rem;
 	}
 	.temperature {
-		.degrees {
-			font-size: 4rem;
-			font-weight: 800;
-			line-height: 4rem;
-		}
-		.label {
-			font-size: 1rem;
-			font-weight: 600;
-		}
+	}
+	.degrees {
+		font-size: 4rem;
+		font-weight: 800;
+		line-height: 4rem;
+	}
+	.label {
+		font-size: 1rem;
+		font-weight: 600;
 	}
 	.description {
 		text-transform: capitalize;
 		font-size: 1.2rem;
 		font-weight: 600;
 		line-height: 1.2rem;
+	}
+	.wind-direction {
+		font-size: 4rem;
+		line-height: 4rem;
+		&:before {
+	    	transform: rotateZ(-45deg);
+		}
+	    display: inline-block;
 	}
 }
 
