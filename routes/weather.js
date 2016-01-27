@@ -37,11 +37,11 @@ module.exports = {
 			}
 			weather.wind.direction = compassDirection(windDirection);
 
-			var sunrise = new Date(Date(weather.sys.sunrise)),
-				sunset = new Date(Date(weather.sys.sunset));
+			var sunrise = new Date(weather.sys.sunrise * 1000),
+				sunset = new Date(weather.sys.sunset * 1000);
 
 			weather.sys.sunrise = sunrise.toLocaleTimeString();
-			weather.sys.sunset = sunrise.toLocaleTimeString();
+			weather.sys.sunset = sunset.toLocaleTimeString();
 
 	  		res.send(weather);
 		}
