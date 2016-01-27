@@ -17,8 +17,7 @@ window.onload = function() {
             iconCounter = 0,
             rafReq;
 
-        var icons = ['a', 'b', 'c', 'd', 'e'],
-            randIcon = icons[Math.floor(Math.random() * icons.length)];
+        var icons = ['a', 'b', 'c', 'd', 'e'];
 
         // Fallback
         if (!reqAnimFrame) {
@@ -26,28 +25,23 @@ window.onload = function() {
         } else {
             // timer
             function step(timestamp) {
-            	var steps = Math.round(timestamp);
-
-
+            	var steps = Math.ceil(timestamp/1000);
                 if (steps <= 10000) {
-                	console.log(steps);
-                	console.log(counter);
-                	console.log(iconHolder.style.transform);
+                	if (steps >= counter && steps >= 1) {
+                		if (!iconHolder.style.transform || iconHolder.style.transform === 'rotateY(0deg)') {
+                			iconHolder.style.transform = 'rotateY(180deg)';
+                        	iconBack.setAttribute('id', icons[iconCounter]);
+                		}else {
+                			iconHolder.style.transform = 'rotateY(0deg)'
+                        	iconFront.setAttribute('id', icons[iconCounter]);
+	                        if (iconCounter < 4) {
+	                            iconCounter++;
+	                        } else {
+	                            iconCounter = 0;
+	                        }
+                		}
 
-                	if (steps >= counter) {
-                		console.log('red');
-                		iconHolder.style.transform = (!iconHolder.style.transform || iconHolder.style.transform === 'rotateY(0deg)') ? 'rotateY(180deg)' : 'rotateY(0deg)';
-                        iconHolder.style.background = "red";
-                        iconFront.setAttribute('id', icons[iconCounter]);
-                        iconBack.setAttribute('id', icons[iconCounter]);
-
-                        if (iconCounter < 4) {
-                            iconCounter++;
-                        } else {
-                            iconCounter = 0;
-                        }
-                    	counter += 2000;
-
+                    	counter += 2;
                 	}else {
                 	}
 

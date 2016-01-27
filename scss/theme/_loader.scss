@@ -1,5 +1,6 @@
 $loader-icon-size: 8rem !default;
-$loader-icon-bg: white !default;
+$loader-icon-bg: black !default;
+$loader-icon-color: white !default;
 $loader-message-size: 1rem !default;
 $loader-message-spacing: 2rem !default;
 
@@ -14,7 +15,8 @@ $loader-message-spacing: 2rem !default;
 		width: 100vw;
 		height: 100vh;
 		transform-style: preserve-3d;
-		transition: transform 2s linear;
+		transition: transform 1s linear;
+		transform: rotateY(180deg);
 		// @extend .animate-spin;
 
 	}
@@ -36,6 +38,7 @@ $loader-message-spacing: 2rem !default;
 			margin: 0;
 			font-size: $loader-icon-size/2;
 			padding: $loader-icon-size/4;
+			color: $loader-icon-color;
 		}
 	}
 	.loading-icon-front {
@@ -54,6 +57,12 @@ $loader-message-spacing: 2rem !default;
 		&:before {
 			content: '\e814';
 		}
+		&#a:before { content: '\e811' }
+		&#b:before { content: '\e828' }
+		&#c:before { content: '\e82d' }
+		&#d:before { content: '\e800' }
+		&#e:before { content: '\e81a' }
+
 	    -moz-transform: rotateY(180deg);
 	    -o-transform: rotateY(180deg);
 	    -webkit-transform: rotateY(180deg);

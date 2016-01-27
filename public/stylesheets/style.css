@@ -8,10 +8,11 @@
     width: 100vw;
     height: 100vh;
     transform-style: preserve-3d;
-    transition: transform 2s linear; }
+    transition: transform 1s linear;
+    transform: rotateY(180deg); }
   .loading-block .loading-icon-front, .loading-block .loading-icon-back {
     backface-visibility: hidden;
-    background: white;
+    background: black;
     width: 8rem;
     height: 8rem;
     position: absolute;
@@ -25,7 +26,8 @@
     .loading-block .loading-icon-front:before, .loading-block .loading-icon-back:before {
       margin: 0;
       font-size: 4rem;
-      padding: 2rem; }
+      padding: 2rem;
+      color: white; }
   .loading-block .loading-icon-front {
     z-index: 1; }
     .loading-block .loading-icon-front:before {
@@ -48,6 +50,16 @@
     transform: rotateY(180deg); }
     .loading-block .loading-icon-back:before {
       content: '\e814'; }
+    .loading-block .loading-icon-back#a:before {
+      content: '\e811'; }
+    .loading-block .loading-icon-back#b:before {
+      content: '\e828'; }
+    .loading-block .loading-icon-back#c:before {
+      content: '\e82d'; }
+    .loading-block .loading-icon-back#d:before {
+      content: '\e800'; }
+    .loading-block .loading-icon-back#e:before {
+      content: '\e81a'; }
   .loading-block .loading-message {
     font-size: 1rem;
     line-height: 1rem;
