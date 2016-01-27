@@ -7,7 +7,8 @@
   .loading-block .loading-icons {
     width: 100vw;
     height: 100vh;
-    transform-style: preserve-3d; }
+    transform-style: preserve-3d;
+    transition: transform 2s linear; }
   .loading-block .loading-icon-front, .loading-block .loading-icon-back {
     backface-visibility: hidden;
     background: white;

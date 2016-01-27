@@ -27,27 +27,14 @@ window.onload = function() {
             // timer
             function step(timestamp) {
             	var steps = Math.round(timestamp);
-                var elRotate = window.getComputedStyle(iconHolder, null),
-                    elMatrix;
-
-                elMatrix = elRotate.getPropertyValue('transform');
-
-                var values = elMatrix.split('(')[1],
-                    values = values.split(')')[0],
-                    values = values.split(',');
-
-                var a = values[0];
-                var b = values[1];
-                var c = values[2];
-                var d = values[3];
 
 
-                if (steps <= 4000) {
+                if (steps <= 400000) {
                 	console.log(steps);
                 	console.log(counter);
-                	console.log(a, c);
                 	if (steps >= counter) {
                 		console.log('red');
+                		iconHolder.style.transform = 'rotateY(180deg)';
                         iconHolder.style.background = "red";
                         iconFront.setAttribute('id', icons[iconCounter]);
                         iconBack.setAttribute('id', icons[iconCounter]);
@@ -60,7 +47,7 @@ window.onload = function() {
                     	counter += 2000;
 
                 	}else {
-
+                		iconHolder.style.transform = '';
                 	}
 
                     rafReq = reqAnimFrame(step);

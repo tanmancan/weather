@@ -14,6 +14,7 @@ $loader-message-spacing: 2rem !default;
 		width: 100vw;
 		height: 100vh;
 		transform-style: preserve-3d;
+		transition: transform 2s linear;
 		// @extend .animate-spin;
 
 	}
