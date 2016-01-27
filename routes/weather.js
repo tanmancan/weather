@@ -22,9 +22,27 @@ module.exports = {
 		],
 
 		function(err, results) {
-			var weather;
+			var weather,
+				windDirection;
 			if(err) {console.log(err); res.send(500, 'Server Error'); return;}
 			weather = results[0];
+			windDirection = weather.wind.deg;
+
+			function compassDirection(deg) {
+				var directions = [
+					'n','nne','ne','ene','e','ese','se','sse','s','ssw','sw','wsw','w','wnw','nw','nww'
+				];
+				var key = Math.floor((deg / 22.5) + .5);
+				return directions[key % 16];
+			}
+			weather.wind.direction = compassDirection(windDirection);
+
+			var sunrise = new Date(Date(weather.sys.sunrise)),
+				sunset = new Date(Date(weather.sys.sunset));
+
+			weather.sys.sunrise = sunrise.toLocaleTimeString();
+			weather.sys.sunset = sunrise.toLocaleTimeString();
+
 	  		res.send(weather);
 		}
 		);
@@ -36,6 +54,6 @@ module.exports = {
 
 	dev: function(req, res) {
 		res.render('loader');
-	}
+	},
 
 };

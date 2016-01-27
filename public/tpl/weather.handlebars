@@ -2,10 +2,13 @@
 	<h1 class="location-name">{{name}}</h1>
 	<hr>
 	<div class="flex-container">
-		<div class="icon flex-item">
-			<i class="icon-{{weather.[0].icon}}"></i>
+		<div class="flex-item">
+			<div class="icon">
+				<i class="icon-{{weather.[0].icon}}"></i>
+			</div>
+			<!-- /.icon -->
 		</div>
-		<!-- /.icon -->
+		<!-- /.flex-item -->
 		<div class="flex-item">
 			<div class="temperature">
 				<span class="degrees">{{main.temp}}<sup class="label">&deg; F</sup></span>
@@ -20,17 +23,25 @@
 	</div>
 	<!-- /.clearfix -->
 	<hr>
-	{{#with wind}}
 	<div class="flex-container">
 		<div class="flex-item">
-			<i class="icon-compass wind-direction" style="transform: rotateZ({{deg}}deg);"></i>
+			{{#with wind}}
+			{{!-- <i class="icon-compass wind-direction-icon" style="transform: rotateZ({{deg}}deg);"></i> --}}
+			<div class="wind-speed"><strong>Wind</strong> {{speed}} mph</div>
+			<div class="wind-direction"><strong>Direction</strong> <span class="direction">{{direction}}</span></div>
+			{{/with}}
 		</div>
 		<!-- /.flex-item -->
 		<div class="flex-item">
-			<div class="wind-speed description">{{speed}} mph wind</div>
+			<div class="humidity"><strong>Humidity</strong> {{main.humidity}}%</div>
+			<div class="pressure"><strong>Pressure</strong> {{main.pressure}}mBar</div>
+		</div>
+		<!-- /.flex-item -->
+		<div class="flex-item">
+			<div class="sunrise"><strong>Sunrise</strong> {{sys.sunrise}}</div>
+			<div class="sunset"><strong>Sunset</strong> {{sys.sunset}}</div>
 		</div>
 		<!-- /.flex-item -->
 	</div>
 	<!-- /.flex-container -->
-	{{/with}}
 </div>

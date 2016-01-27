@@ -23,7 +23,7 @@ function changeIcons() {
     } else {
         // timer
         function step(timestamp) {
-        	var steps = Math.ceil(timestamp/1000);
+        	var steps = Math.ceil(timestamp/750);
             if (steps <= 10000) {
             	if (steps >= counter && steps >= 1) {
             		if (!iconHolder.style.transform || iconHolder.style.transform === 'rotateY(0deg)') {
