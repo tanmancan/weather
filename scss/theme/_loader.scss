@@ -69,6 +69,8 @@ $loader-message-spacing: 2rem !default;
 	    transform: rotateY(180deg);
 	}
 	.loading-message {
+		font-weight: 800;
+		text-transform: uppercase;
 		font-size: $loader-message-size;
 		line-height: $loader-message-size;
 		height: $loader-message-size;
