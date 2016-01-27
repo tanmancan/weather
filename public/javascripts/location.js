@@ -1,10 +1,12 @@
 window.onload = function() {
 	var html = document.querySelector('html');
 	if(navigator.geolocation) {
+		changeIcons();
 		navigator.geolocation.getCurrentPosition(sendUserLocation, locationErr);
 	}
 	function locationErr(err) {
-		html.innerHTML = "ERROR:" + err;
+		var msgEl = document.getElementsByClassName('loading-message')[0];
+		msgEl.innerHTML = "ERROR: " + err.message;
 	}
 	function sendUserLocation(pos) {
 		var currPos = pos;
