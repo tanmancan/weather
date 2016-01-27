@@ -1,7 +1,29 @@
 @charset "UTF-8";
+.weather-report {
+  padding: 1rem; }
+  .weather-report .location-name {
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin: 1rem 0 1.4rem; }
+  .weather-report .icon {
+    font-size: 4rem;
+    line-height: 4rem; }
+  .weather-report .temperature .degrees {
+    font-size: 4rem;
+    font-weight: 800;
+    line-height: 4rem; }
+  .weather-report .temperature .label {
+    font-size: 1rem;
+    font-weight: 600; }
+  .weather-report .description {
+    text-transform: capitalize;
+    font-size: 1.2rem;
+    font-weight: 600;
+    line-height: 1.2rem; }
+
 .loading-block {
   width: 100vw;
-  height: 100vw;
+  height: 100vh;
   position: relative;
   transform: perspective(800px); }
   .loading-block .loading-icons {
@@ -75,77 +97,10 @@
     margin: auto;
     padding: 10rem 0 0; }
 
-.animate-spin {
-  -moz-animation: spin 2s infinite linear;
-  -o-animation: spin 2s infinite linear;
-  -webkit-animation: spin 2s infinite linear;
-  animation: spin 2s infinite linear;
-  display: inline-block; }
-
-@-moz-keyframes spin {
-  0% {
-    -moz-transform: rotateY(0deg);
-    -o-transform: rotateY(0deg);
-    -webkit-transform: rotateY(0deg);
-    transform: rotateY(0deg); }
-
-  100% {
-    -moz-transform: rotateY(359deg);
-    -o-transform: rotateY(359deg);
-    -webkit-transform: rotateY(359deg);
-    transform: rotateY(359deg); } }
-
-@-webkit-keyframes spin {
-  0% {
-    -moz-transform: rotateY(0deg);
-    -o-transform: rotateY(0deg);
-    -webkit-transform: rotateY(0deg);
-    transform: rotateY(0deg); }
-
-  100% {
-    -moz-transform: rotateY(359deg);
-    -o-transform: rotateY(359deg);
-    -webkit-transform: rotateY(359deg);
-    transform: rotateY(359deg); } }
-
-@-o-keyframes spin {
-  0% {
-    -moz-transform: rotateY(0deg);
-    -o-transform: rotateY(0deg);
-    -webkit-transform: rotateY(0deg);
-    transform: rotateY(0deg); }
-
-  100% {
-    -moz-transform: rotateY(359deg);
-    -o-transform: rotateY(359deg);
-    -webkit-transform: rotateY(359deg);
-    transform: rotateY(359deg); } }
-
-@-ms-keyframes spin {
-  0% {
-    -moz-transform: rotateY(0deg);
-    -o-transform: rotateY(0deg);
-    -webkit-transform: rotateY(0deg);
-    transform: rotateY(0deg); }
-
-  100% {
-    -moz-transform: rotateY(359deg);
-    -o-transform: rotateY(359deg);
-    -webkit-transform: rotateY(359deg);
-    transform: rotateY(359deg); } }
-
-@keyframes spin {
-  0% {
-    -moz-transform: rotateY(0deg);
-    -o-transform: rotateY(0deg);
-    -webkit-transform: rotateY(0deg);
-    transform: rotateY(0deg); }
-
-  100% {
-    -moz-transform: rotateY(359deg);
-    -o-transform: rotateY(359deg);
-    -webkit-transform: rotateY(359deg);
-    transform: rotateY(359deg); } }
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
 
 body {
   padding: 0;
@@ -154,6 +109,31 @@ body {
 
 a {
   color: #00B7FF; }
+
+hr {
+  width: 100%;
+  height: 0px;
+  border-width: 0 0 1px 0;
+  border-color: #ccc;
+  margin: 0 0 1rem; }
+
+#page {
+  height: 100vh;
+  width: 100vw; }
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  align-content: stretch; }
+  .flex-container > div {
+    flex: auto;
+    position: relative; }
+
+.clearfix:before, .clearfix:after {
+  content: ' ';
+  display: table; }
+.clearfix:after {
+  clear: both; }
 
 @font-face {
   font-family: 'w-';
@@ -284,11 +264,11 @@ a {
   content: '\e814'; }
 
 /* '' */
-.icon-sun:before {
+.icon-sun:before, .icon-01d:before {
   content: '\e815'; }
 
 /* '' */
-.icon-moon:before {
+.icon-moon:before, .icon-01n:before {
   content: '\e816'; }
 
 /* '' */
@@ -308,19 +288,19 @@ a {
   content: '\e81a'; }
 
 /* '' */
-.icon-cloud-sun:before {
+.icon-cloud-sun:before, .icon-02d:before {
   content: '\e81b'; }
 
 /* '' */
-.icon-cloud-moon:before {
+.icon-cloud-moon:before, .icon-02n:before {
   content: '\e81c'; }
 
 /* '' */
-.icon-fog-sun:before {
+.icon-fog-sun:before, .icon-50d:before {
   content: '\e81d'; }
 
 /* '' */
-.icon-fog-moon:before {
+.icon-fog-moon:before, .icon-50n:before {
   content: '\e81e'; }
 
 /* '' */
@@ -332,11 +312,11 @@ a {
   content: '\e820'; }
 
 /* '' */
-.icon-cloud:before {
+.icon-cloud:before, .icon-03d:before, .icon-03n:before {
   content: '\e821'; }
 
 /* '' */
-.icon-cloud-flash:before {
+.icon-cloud-flash:before, .icon-11d:before, .icon-11n:before {
   content: '\e822'; }
 
 /* '' */
@@ -348,7 +328,7 @@ a {
   content: '\e824'; }
 
 /* '' */
-.icon-rain:before {
+.icon-rain:before, .icon-09d:before, .icon-10d:before, .icon-09n:before, .icon-10n:before {
   content: '\e825'; }
 
 /* '' */
@@ -360,7 +340,7 @@ a {
   content: '\e827'; }
 
 /* '' */
-.icon-snow:before {
+.icon-snow:before, .icon-13d:before, .icon-13n:before {
   content: '\e828'; }
 
 /* '' */
@@ -376,7 +356,7 @@ a {
   content: '\e82b'; }
 
 /* '' */
-.icon-clouds:before {
+.icon-clouds:before, .icon-04d:before, .icon-04n:before {
   content: '\e82c'; }
 
 /* '' */

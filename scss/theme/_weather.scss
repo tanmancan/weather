@@ -1,0 +1,62 @@
+.weather-report {
+	padding: 1rem;
+	.location-name {
+		font-size: 2.2rem;
+		font-weight: 800;
+		margin: 1rem 0 1.4rem;
+	}
+	.icon,
+	.temperature {
+
+	}
+	.icon {
+		font-size: 4rem;
+		line-height: 4rem;
+	}
+	.temperature {
+		.degrees {
+			font-size: 4rem;
+			font-weight: 800;
+			line-height: 4rem;
+		}
+		.label {
+			font-size: 1rem;
+			font-weight: 600;
+		}
+	}
+	.description {
+		text-transform: capitalize;
+		font-size: 1.2rem;
+		font-weight: 600;
+		line-height: 1.2rem;
+	}
+}
+
+// Icons
+
+@each $icon-code, $icon-class in
+	// Day
+	('01d', '.icon-sun'), // clear sky
+	('02d', '.icon-cloud-sun'), // few clouds
+	('03d', '.icon-cloud'), // scatterd clounds
+	('04d', '.icon-clouds'), // broken clounds
+	('09d', '.icon-rain'), // shower rain
+	('10d', '.icon-rain'), // rain
+	('11d', '.icon-cloud-flash'), // thunderstorm
+	('13d', '.icon-snow'), // snow
+	('50d', '.icon-fog-sun'), // mist
+	// Night
+	('01n', '.icon-moon'), // clear sky
+	('02n', '.icon-cloud-moon'), // few clouds
+	('03n', '.icon-cloud'), // scatterd clounds
+	('04n', '.icon-clouds'), // broken clounds
+	('09n', '.icon-rain'), // shower rain
+	('10n', '.icon-rain'), // rain
+	('11n', '.icon-cloud-flash'), // thunderstorm
+	('13n', '.icon-snow'), // snow
+	('50n', '.icon-fog-moon') // mist 
+	{
+	.icon-#{$icon-code} {
+		@extend #{$icon-class};
+	}
+}

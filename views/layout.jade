@@ -7,8 +7,9 @@ html
     script(src='/javascripts/loader.js')
     script(src='/javascripts/render.js')
     script(src='/javascripts/location.js')
-  body#page
-    block content
+  body
+    #page
+      block content
     script.
         WebFontConfig = {
         google: { families: [ 'Open+Sans:400,600,700,800:latin' ] }

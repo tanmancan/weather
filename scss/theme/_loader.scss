@@ -8,7 +8,7 @@ $loader-message-spacing: 2rem !default;
 }
 .loading-block {
 	width: 100vw;
-	height: 100vw;
+	height: 100vh;
 	position: relative;
 	transform: perspective(800px);
 	.loading-icons {
@@ -84,89 +84,3 @@ $loader-message-spacing: 2rem !default;
 		padding: $loader-icon-size + $loader-message-spacing 0 0;
 	}
 }
-
-
-// Rotations
-.animate-spin {
-  -moz-animation: spin 2s infinite linear;
-  -o-animation: spin 2s infinite linear;
-  -webkit-animation: spin 2s infinite linear;
-  animation: spin 2s infinite linear;
-  display: inline-block;
-}
-@-moz-keyframes spin {
-  0% {
-    -moz-transform: rotateY(0deg);
-    -o-transform: rotateY(0deg);
-    -webkit-transform: rotateY(0deg);
-    transform: rotateY(0deg);
-  }
-
-  100% {
-    -moz-transform: rotateY(359deg);
-    -o-transform: rotateY(359deg);
-    -webkit-transform: rotateY(359deg);
-    transform: rotateY(359deg);
-  }
-}
-@-webkit-keyframes spin {
-  0% {
-    -moz-transform: rotateY(0deg);
-    -o-transform: rotateY(0deg);
-    -webkit-transform: rotateY(0deg);
-    transform: rotateY(0deg);
-  }
-
-  100% {
-    -moz-transform: rotateY(359deg);
-    -o-transform: rotateY(359deg);
-    -webkit-transform: rotateY(359deg);
-    transform: rotateY(359deg);
-  }
-}
-@-o-keyframes spin {
-  0% {
-    -moz-transform: rotateY(0deg);
-    -o-transform: rotateY(0deg);
-    -webkit-transform: rotateY(0deg);
-    transform: rotateY(0deg);
-  }
-
-  100% {
-    -moz-transform: rotateY(359deg);
-    -o-transform: rotateY(359deg);
-    -webkit-transform: rotateY(359deg);
-    transform: rotateY(359deg);
-  }
-}
-@-ms-keyframes spin {
-  0% {
-    -moz-transform: rotateY(0deg);
-    -o-transform: rotateY(0deg);
-    -webkit-transform: rotateY(0deg);
-    transform: rotateY(0deg);
-  }
-
-  100% {
-    -moz-transform: rotateY(359deg);
-    -o-transform: rotateY(359deg);
-    -webkit-transform: rotateY(359deg);
-    transform: rotateY(359deg);
-  }
-}
-@keyframes spin {
-  0% {
-    -moz-transform: rotateY(0deg);
-    -o-transform: rotateY(0deg);
-    -webkit-transform: rotateY(0deg);
-    transform: rotateY(0deg);
-  }
-
-  100% {
-    -moz-transform: rotateY(359deg);
-    -o-transform: rotateY(359deg);
-    -webkit-transform: rotateY(359deg);
-    transform: rotateY(359deg);
-  }
-}
-

@@ -1,10 +1,26 @@
-<h1>Current Weather {{name}}</h1>
-<hr>
-<p>Temperature is {{main.temp}} degrees F</p>
-{{#with weather.[0]}}
-<p>{{description}}</p>
-{{/with}}
-
-{{#with wind}}
-<p>Windspeed is {{speed}}mph</p>
-{{/with}}
+<div class="weather-report">
+	<h1 class="location-name">{{name}}</h1>
+	<hr>
+	<div class="flex-container">
+		<div class="icon flex-item">
+			<i class="icon-{{weather.[0].icon}}"></i>
+		</div>
+		<!-- /.icon -->
+		<div class="flex-item">
+			<div class="temperature">
+				<span class="degrees">{{main.temp}}<sup class="label">&deg; F</sup></span>
+			</div>
+			{{#with weather.[0]}}
+			<div class="description">{{description}}</div>
+			<!-- /.description -->
+		</div>
+		<!-- /.flex-item -->
+		{{/with}}
+		<!-- /.temperature -->
+	</div>
+	<!-- /.clearfix -->
+	
+	{{#with wind}}
+	<p>Windspeed is {{speed}}mph</p>
+	{{/with}}
+</div>
