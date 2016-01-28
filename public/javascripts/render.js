@@ -13,8 +13,8 @@ var renderPage = function(tpl, weatherData) {
 					source = getTemplate.responseText;
 					template = Handlebars.compile(source);
 
-					var sunrise = new Date(data.sys.sunrise * 1000),
-						sunset = new Date(data.sys.sunset * 1000);
+					var sunrise = new Date(Number(data.sys.sunrise * 1000)),
+						sunset = new Date(Number(data.sys.sunset * 1000));
 
 					data.sys.sunrise = sunrise.toLocaleTimeString();
 					data.sys.sunset = sunset.toLocaleTimeString();
