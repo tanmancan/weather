@@ -12,6 +12,13 @@ var renderPage = function(tpl, weatherData) {
 				case 200:
 					source = getTemplate.responseText;
 					template = Handlebars.compile(source);
+
+					var sunrise = new Date(data.sys.sunrise * 1000),
+						sunset = new Date(data.sys.sunset * 1000);
+
+					data.sys.sunrise = sunrise.toLocaleTimeString();
+					data.sys.sunset = sunset.toLocaleTimeString();
+
 					page.innerHTML = template(data);
 					console.log(data);
 					break;
