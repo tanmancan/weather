@@ -15,12 +15,12 @@ var renderPage = function(tpl, weatherData) {
 
 					var sunrise = new Date(Number(data.sys.sunrise) * 1000),
 						sunset = new Date(Number(data.sys.sunset) * 1000);
-						console.log(sunrise, sunrise.toLocaleTimeString());
+
 					data.sys.sunrise = sunrise.toLocaleTimeString();
 					data.sys.sunset = sunset.toLocaleTimeString();
 
 					page.innerHTML = template(data);
-					console.log(data);
+					
 					break;
 				case 400:
 				case 403:
