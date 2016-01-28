@@ -3,7 +3,7 @@ var renderPage = function(tpl, weatherData) {
 	var getTemplate = new XMLHttpRequest();
 	var source,
 		template,
-		page = document.getElementById('page')
+		page = document.getElementById('page'),
 		data = weatherData;
 
 	getTemplate.onreadystatechange = function() {
@@ -13,11 +13,11 @@ var renderPage = function(tpl, weatherData) {
 					source = getTemplate.responseText;
 					template = Handlebars.compile(source);
 
-					var sunrise = new Date(Number(data.sys.sunrise * 1000)),
-						sunset = new Date(Number(data.sys.sunset * 1000));
+					var sunrise = new Date(Number(data.sys.sunrise) * 1000),
+						sunset = new Date(Number(data.sys.sunset) * 1000);
 
-					data.sys.sunrise = sunrise.toLocaleTimeString();
-					data.sys.sunset = sunset.toLocaleTimeString();
+					// data.sys.sunrise = sunrise.toLocaleTimeString();
+					// data.sys.sunset = sunset.toLocaleTimeString();
 
 					page.innerHTML = template(data);
 					console.log(data);
