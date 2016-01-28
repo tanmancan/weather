@@ -32,8 +32,8 @@
 			line-height: 4rem;
 		}
 		.label {
-			font-size: 1rem;
-			font-weight: 600;
+			font-size: 2rem;
+			font-weight: 700;
 		}
 	}
 	.description {
@@ -46,10 +46,26 @@
 		}
 	}
 	.wind-direction-icon {
-		font-size: 4rem;
-		line-height: 4rem;
+	    height: .75rem;
+	    width: .75rem;
+	    line-height: inherit;
+	    position: relative;
+	    border: 2px solid black;
+	    border-radius: 50%;
+    	overflow: hidden;
 		&:before {
-	    	transform: rotateZ(-45deg);
+			content: ' ';
+		    display: inline-block;
+		    width: 0;
+		    height: 0;
+		    position: absolute;
+		    top: 0;
+		    left: 0;
+		    right: 0;
+		    margin: auto;
+		    border-width: 0rem .25rem 1rem;
+		    border-color: transparent transparent #00B7FF transparent;
+		    border-style: solid;
 		}
 	    display: inline-block;
 	}

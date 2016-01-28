@@ -24,8 +24,10 @@ module.exports = {
 		function(err, results) {
 			var weather,
 				windDirection;
+
 			if(err) {console.log(err); res.send(500, 'Server Error'); return;}
 			weather = results[0];
+
 			windDirection = weather.wind.deg;
 
 			function compassDirection(deg) {
@@ -36,6 +38,8 @@ module.exports = {
 				return directions[key % 16];
 			}
 			weather.wind.direction = compassDirection(windDirection);
+
+			weather.main.temp = Math.round(weather.main.temp);
 
 	  		res.send(weather);
 		}

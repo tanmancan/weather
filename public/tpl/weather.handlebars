@@ -26,9 +26,12 @@
 	<div class="flex-container">
 		<div class="flex-item">
 			{{#with wind}}
-			{{!-- <i class="icon-compass wind-direction-icon" style="transform: rotateZ({{deg}}deg);"></i> --}}
+			
 			<div class="wind-speed"><strong>Wind</strong> {{speed}} mph</div>
-			<div class="wind-direction"><strong>Direction</strong> <span class="direction">{{direction}}</span></div>
+			<div class="wind-direction">
+				<strong>Direction</strong> <span class="direction">{{direction}}</span>
+				<i class="wind-direction-icon" style="transform: rotateZ({{deg}}deg);"></i>
+			</div>
 			{{/with}}
 		</div>
 		<!-- /.flex-item -->

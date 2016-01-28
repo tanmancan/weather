@@ -55,7 +55,7 @@ module.exports = function(grunt) {
         watch: {
             sass: {
                 files: ['scss/*.scss', 'scss/*/*.scss', 'scss/*/*/*.scss'],
-                tasks: ['sass:dev']
+                tasks: ['sass:dist']
             },
             other: {
                 files: ['public/tpl/*.handlebars', '*.js', 'routes/*.js', 'views/*.jade']

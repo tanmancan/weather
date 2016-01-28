@@ -30,11 +30,30 @@
       .weather-report .description {
         text-align: left; } }
   .weather-report .wind-direction-icon {
-    font-size: 4rem;
-    line-height: 4rem;
+    height: 1rem;
+    width: 1rem;
+    line-height: 1rem;
+    display: inline-block;
+    position: relative;
+    border: 2px solid black;
+    border-radius: 50%;
+    vertical-align: middle;
+    overflow: hidden;
     display: inline-block; }
     .weather-report .wind-direction-icon:before {
-      transform: rotateZ(-45deg); }
+      content: ' ';
+      display: inline-block;
+      width: 0;
+      height: 0;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+      border-width: .25rem .25rem .75rem;
+      border-color: transparent transparent black transparent;
+      border-style: solid; }
   .weather-report .wind-direction .direction {
     text-transform: uppercase; }
 
