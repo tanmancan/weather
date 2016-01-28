@@ -3,6 +3,8 @@
   padding: 1rem;
   max-width: 40rem;
   margin: 0 auto; }
+  .weather-report .condition.flex-container {
+    flex-direction: row; }
   .weather-report .location-name {
     font-size: 2.2rem;
     font-weight: 800;
@@ -19,8 +21,8 @@
       font-weight: 800;
       line-height: 4rem; }
     .weather-report .temperature .label {
-      font-size: 1rem;
-      font-weight: 600; }
+      font-size: 2rem;
+      font-weight: 700; }
   .weather-report .description {
     text-transform: capitalize;
     font-size: 1.4rem;
@@ -30,14 +32,12 @@
       .weather-report .description {
         text-align: left; } }
   .weather-report .wind-direction-icon {
-    height: 1rem;
-    width: 1rem;
-    line-height: 1rem;
-    display: inline-block;
+    height: .75rem;
+    width: .75rem;
+    line-height: inherit;
     position: relative;
     border: 2px solid black;
     border-radius: 50%;
-    vertical-align: middle;
     overflow: hidden;
     display: inline-block; }
     .weather-report .wind-direction-icon:before {
@@ -47,12 +47,11 @@
       height: 0;
       position: absolute;
       top: 0;
-      bottom: 0;
       left: 0;
       right: 0;
       margin: auto;
-      border-width: .25rem .25rem .75rem;
-      border-color: transparent transparent black transparent;
+      border-width: 0rem .25rem 1rem;
+      border-color: transparent transparent #00B7FF transparent;
       border-style: solid; }
   .weather-report .wind-direction .direction {
     text-transform: uppercase; }
