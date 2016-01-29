@@ -37,7 +37,7 @@
 		<!-- /.flex-item -->
 		<div class="flex-item">
 			<div class="humidity"><strong>Humidity</strong> {{main.humidity}}%</div>
-			<div class="pressure"><strong>Pressure</strong> {{main.pressure}}mBar</div>
+			<div class="pressure"><strong>Pressure</strong> {{main.pressure}} mBar</div>
 		</div>
 		<!-- /.flex-item -->
 		<div class="flex-item">
@@ -48,5 +48,52 @@
 	</div>
 	<!-- /.flex-container -->
 	<hr>
+	<div>
+		<h2>Forecast</h2>
+		{{#each forecast_daily}}
+			<div class="forecast">
+				<div class="date">
+					<strong>{{date}}</strong>
+				</div>
+				<!-- /.date -->
+				<div class="flex-container">
+					<div class="flex-box">
+						<div class="icon">
+							<i class="icon-{{weather.[0].icon}}"></i>
+						</div>
+						<!-- /.icon -->
+					</div>
+					<!-- /.flex-box -->
+					<div class="flex-box">
+						<div class="temperature">
+							<span class="degrees">{{main.temp}}<sup class="label">&deg; F</sup></span>
+						</div>
+						{{#with weather.[0]}}
+						<div class="description">{{description}}</div>
+						<!-- /.description -->
+						{{/with}}
+					</div>
+					<!-- /.flex-box -->
+					<div class="flex-box">
+						{{#with wind}}
+						
+						<div class="wind-speed"><strong>Wind</strong> {{speed}} mph</div>
+						<div class="wind-direction">
+							<strong>Direction</strong> <span class="direction">{{direction}}</span>
+							<i class="wind-direction-icon" style="transform: rotateZ({{deg}}deg);"></i>
+						</div>
+						{{/with}}
+						<div class="humidity"><strong>Humidity</strong> {{main.humidity}}%</div>
+						<div class="pressure"><strong>Pressure</strong> {{main.pressure}} mBar</div>
+					</div>
+					<!-- /.flex-box -->
+				</div>
+				<!-- /.flex-container -->
+			</div>
+			<!-- /.forecast -->
+
+		{{/each}}
+	</div>
+
 	&copy; Tanveer Karim. View on <a href="https://github.com/tanmancan/weather">Github</a>
 </div>

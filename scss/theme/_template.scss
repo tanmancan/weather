@@ -52,7 +52,7 @@ hr {
     align-content: stretch;
     margin-bottom: 1.4rem;
     > div {
-        flex: auto;
+        flex: 1;
         position: relative;
         margin-bottom: 1rem;
 	    @media (min-width: 480px) {
