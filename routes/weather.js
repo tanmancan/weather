@@ -1,4 +1,4 @@
-var config = require('../config');
+var config = (!process.env.config) ? require('../config') : process.env.config;
 var request = require('request');
 var async = require('async');
 
