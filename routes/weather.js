@@ -1,4 +1,4 @@
-var config = (!process.env.config) ? require('../config') : process.env.config;
+var config = ('CONFIG_WEATHER' in process.env) ? process.env.CONFIG_WEATHER : require('../config');
 var request = require('request');
 var async = require('async');
 
