@@ -2,6 +2,8 @@ var config = ('CONFIG_WEATHER' in process.env) ? process.env.CONFIG_WEATHER : re
 var request = require('request');
 var async = require('async');
 
+	console.log('Variable config:', config);
+	console.log('Environ config:', process.env.CONFIG_WEATHER);
 module.exports = {
 	render: function(req, res) {
 		var loc = req.body;
