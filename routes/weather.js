@@ -4,7 +4,6 @@ var async = require('async');
 
 module.exports = {
 	render: function(req, res) {
-		console.log(process.env);
 		var loc = req.body;
 		var apiLocation = config.apiLocation;
 		if(loc.lat && loc.lon) {
