@@ -5,7 +5,6 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-    console.log(process.env.CONFIG_WEATHER);
 var weather = require('./routes/weather')
 
 var app = express();
