@@ -2,10 +2,6 @@ var config = ('API_KEY' in process.env) ? process.env.API_KEY : require('../conf
 var request = require('request');
 var async = require('async');
 
-	console.log('Variable config:', config);
-	console.log('Variable apiKey:', config.apiKey);
-	console.log('Variable apiLocation:', config.apiLocation);
-	console.log('Environ config:', process.env.API_KEY);
 module.exports = {
 	render: function(req, res) {
 		var loc = req.body;
