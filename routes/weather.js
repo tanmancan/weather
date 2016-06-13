@@ -1,24 +1,26 @@
-var config = ('CONFIG_WEATHER' in process.env) ? process.env.CONFIG_WEATHER : require('../config');
+var config = ('API_KEY' in process.env) ? process.env.API_KEY : require('../config');
 var request = require('request');
 var async = require('async');
 
 	console.log('Variable config:', config);
 	console.log('Variable apiKey:', config.apiKey);
 	console.log('Variable apiLocation:', config.apiLocation);
-	console.log('Environ config:', process.env.CONFIG_WEATHER);
-	console.log('Environ apiKey:', process.env.CONFIG_WEATHER.apiKey);
-	console.log('Environ apiLocation:', process.env.CONFIG_WEATHER.apiLocation);
+	console.log('Environ config:', process.env.API_KEY);
 module.exports = {
 	render: function(req, res) {
 		var loc = req.body;
-		var apiLocation = config.apiLocation;
+		var apiLocation = process.env.API_LOCATION || config.apiLocation,
+			apiWeather = process.env.API_WEATHER || config.apiWeather,
+			apiUnits = process.env.API_UNITS || config.apiUnits,
+			apiKey = process.env.API_KEY || config.apiKey,
+			apiForecast = process.env.API_FORECAST || config.apiForecast;
 		if(loc.lat && loc.lon) {
 			apiLocation = "?lat=" + loc.lat + "&lon=" + loc.lon;
 		}
 
 		async.parallel([
 			function(callback) {
-				var path = config.apiWeather + apiLocation + config.apiUnits + '&APPID=' + config.apiKey;
+				var path = apiWeather + apiLocation + apiUnits + '&APPID=' + apiKey;
 				request(path, function(err, res, body) {
 					if(err) {console.log(err); callback(true); return;}
 					obj = JSON.parse(body);
@@ -26,7 +28,7 @@ module.exports = {
 				});
 			},
 			function(callback) {
-				var path = config.apiForecast + apiLocation + config.apiUnits + "&APPID=" + config.apiKey;
+				var path = apiForecast + apiLocation + apiUnits + "&APPID=" + apiKey;
 				request(path, function(err, res, body) {
 					if(err) {console.log(err); callback(true); return;}
 					obj = JSON.parse(body);
