@@ -6,8 +6,8 @@ var async = require('async');
 	console.log('Variable apiKey:', config.apiKey);
 	console.log('Variable apiLocation:', config.apiLocation);
 	console.log('Environ config:', process.env.CONFIG_WEATHER);
-	console.log('Environ apiKey:', config.apiKey);
-	console.log('Environ apiLocation:', config.apiLocation);
+	console.log('Environ apiKey:', process.env.CONFIG_WEATHER.apiKey);
+	console.log('Environ apiLocation:', process.env.CONFIG_WEATHER.apiLocation);
 module.exports = {
 	render: function(req, res) {
 		var loc = req.body;
